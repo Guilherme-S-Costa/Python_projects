@@ -1,10 +1,10 @@
 import statistics    
 
 
-print('Olá, essa é a sua calculadora digita, bem vindo!')
-name = input('Primeriamente, digite o seu nome: ')
+print('Olá, essa é a sua calculadora digital, bem vindo!')
+name = input('Primeiramente, digite o seu nome: ')
 
-numbers = input('Agora, digite os numeros que deseja calcular: ')
+numbers = input('Agora, digite os números que deseja calcular média, mediana, e a moda: ')
 lista = [float(i) for i in numbers.split(' ')]
 
 # Média:
