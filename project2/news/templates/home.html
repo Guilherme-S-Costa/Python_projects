@@ -1,9 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<body>
-
-<h1>Postagens do dia</h1>
-<p>Noticias de hoje</p>
-
-</body>
+    <head>
+        <link rel="stylesheet" href="{% static 'one.css'%}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>Postagens do dia</h1>
+            <p>Notícias de hoje</p>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in postagens %}
+                        <div class="post">
+                            <h2>{{ post.titulo}}</h2>
+                            <div class="date">
+                                <p>publicado em: {{ post.data}}</p>
+                            </div>
+                            <p class="post-content">{{ post.conteudo|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

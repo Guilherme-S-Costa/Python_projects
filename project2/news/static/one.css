@@ -1,0 +1,93 @@
+/* * { 
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+.content {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Raleway:wght@300&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d7d7d7;
+}
+
+.page-header {
+  background-color: #C25100;
+  margin-top: 0;
+  padding: 8px 40px;
+}
+
+.page-header h1 {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+  font-size: 30pt;
+  text-decoration: none;
+}
+
+.page-header p {
+  font-family: 'Libre Baskerville', serif;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 40px; */
+}
+
+h1, h2, h3, h4 {
+  /* font-family: 'Lobster', cursive; */
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.date {
+  font-size: 13px;
+  color: #020202;
+  margin-bottom: 30px;
+}
+
+.save {
+  float: right;
+}
+
+.post-form textarea, .post-form input {
+  width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+  color: #ffffff;
+  float: right;
+  font-size: 26pt;
+  margin-right: 20px;
+}
+
+.post {
+  background-color: #ffffff;
+  width: 80rem;
+  margin: 40px;
+  border-radius: 10px;
+  padding: 8px 20px;
+}
+
+.post-content {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+
+.post h2 a, .post h2 a:visited {
+  color: #000000;
+}
