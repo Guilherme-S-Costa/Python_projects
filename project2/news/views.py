@@ -3,9 +3,7 @@ from django.template import loader
 
 from .models import Postagens
 
-# Create your views here.
 def jornal(request):
-
     postagens = Postagens.objects.all().values()
     templates = loader.get_template('home.html')        
     context = {'postagens': postagens}

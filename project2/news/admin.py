@@ -1,6 +1,8 @@
 from django.contrib import admin
 
 from .models import Postagens
-# Register your models here.
 
-admin.site.register(Postagens)
+@admin.register(Postagens)
+class Personadmin(admin.ModelAdmin):
+    list_filter = ["titulo"]
+    search_fields = ["titulo", "conteudo"]
