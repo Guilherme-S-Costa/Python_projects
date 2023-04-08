@@ -1,10 +1,10 @@
 OPCOES_STATUS = (
     ('concluido', 'Concluído'),
     ('pendente', 'Pendente'),
-    ('postergado', 'Postergado'),
+    ('adiado', 'Adiado')
 )
 
-OPCOES_CATEGORIA = (
+OPCOES_PRIORIDADE = (
     ('alto', 'Alto'),
     ('medio', 'Médio'),
     ('baixo', 'Baixo'),

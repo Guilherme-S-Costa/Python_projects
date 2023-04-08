@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+    <div class='row my-4'>
+      <div class='col-10'>
+          <h1> Suas Tarefas </h1> 
+      </div>
+      <div class='col-2'><a href="{% url 'adicionar' %}" class='btn btn-primary'> Adicionar Tarefas</a></div>
+    </div>
+
     <div class='row'>
         <div class='col-12'>
             {% for tarefa in tarefas %}
                 <div class='card p-4 mb-3'>
                     <div class='row justfy-content-between'>
                         <div class='col-9'>
-                            <p class=''>{{ tarefa.content }}</p>
-                            <span>{{ tarefa.created_at }}</span>
+                            <p class=''> Descrição: {{ tarefa.content }}</p>
+                            <p class=''> Status: {{ tarefa.status }}</p>
+                            <span> Data de criação: {{ tarefa.created_at }}</span>
                         </div>
                         <div class='col-3'>
                             <div class='d-flex justify-content-center'>
                                 <buttom class='btn btn-success'> Concluir </buttom>
-                                <buttom class='btn btn-primary mx-3'> Editar </buttom>
+                                <a href="{% url 'editar' %}" class='btn btn-primary mx-3'> Editar </a>
                                 <buttom class='btn btn-danger'> Deletar </buttom>
                             </div>
                         </div>
@@ -23,3 +32,5 @@
         </div>
     </div>
 {% endblock content %}
+
+   

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %} 
+
+    <div class='row my-4'>
+        <div class='col-10'>
+            <h1> Adicionar Tarefas </h1> 
+        </div>
+        <div class='col-2'><a href="{% url 'inicio' %}" class='btn btn-light w-100'> Voltar</a></div>
+    </div>
+    <div class='row'> 
+        <div class='col-12'>
+            <form method='post' action="{% url 'adicionar' %}">
+                {% csrf_token %} 
+                {{ form|crispy }}
+                <input type='submit' class='btn btn-primary mt-5' value='Salvar' />
+            </form>
+        </div>
+    </div>
+    
+
+{%endblock content %}
