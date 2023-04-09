@@ -3,10 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.inicio, name='inicio'),
+    path('', views.listar, name='listar'),
+    path('recuperar/<int:pk>/', views.recuperar, name='recuperar'),
     path('adicionar/', views.adicionar, name='adicionar'),
-    path('concluir/', views.concluir, name='concluir'),
-    path('deletar/', views.deletar, name='deletar'),
-    path('editar/<int:pk>/', views.editar, name='editar'),
+    path('atualizar/<int:pk>/', views.atualizar, name='atualizar'),
+    path('deletar/<int:pk>/', views.deletar, name='deletar'),
 ]
  
