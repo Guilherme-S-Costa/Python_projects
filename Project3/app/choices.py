@@ -5,6 +5,6 @@ OPTIONS_STATUS = (
 
 OPTIONS_PRIORITY = (
     ('alto', 'Alto'),
-    ('médio', 'Médio'),
+    ('medio', 'Médio'),
     ('baixo', 'Baixo'),
 )
