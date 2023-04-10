@@ -7,11 +7,11 @@
         <div class='col-10'>
             <h4> Atualizar a tarefa: <span class='font-weight-bold'>{{ tarefa.title }}</span> </h4> 
         </div>
-        <div class='col-2'><a href="{% url 'listar' %}" class='btn btn-light w-100'> Voltar</a></div>
+        <div class='col-2'><a href="{% url 'list_tasks' %}" class='btn btn-light w-100'> Voltar</a></div>
     </div>
     <div class='row'> 
         <div class='col-12'>
-            <form method='post' action="{% url 'atualizar' tarefa.pk %}">
+            <form method='post' action="{% url 'update' task.pk %}">
                 {% csrf_token %} 
                 {{ form|crispy }}
                 <input type='submit' class='btn btn-primary mt-5' value='Atualizar' />

@@ -1,11 +1,10 @@
-OPCOES_STATUS = (
+OPTIONS_STATUS = (
     ('concluido', 'Concluído'),
-    ('pendente', 'Pendente'),
-    ('adiado', 'Adiado')
+    ('não concluido', 'Não Concluído'),
 )
 
-OPCOES_PRIORIDADE = (
+OPTIONS_PRIORITY = (
     ('alto', 'Alto'),
-    ('medio', 'Médio'),
+    ('médio', 'Médio'),
     ('baixo', 'Baixo'),
 )

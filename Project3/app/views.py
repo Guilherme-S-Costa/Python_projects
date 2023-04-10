@@ -1,46 +1,46 @@
 from django.shortcuts import render, redirect
 
-from .models import Tarefas
-from .forms import AdicionarTarefa
+from .models import Tasks
+from .forms import CreateTasks
 
 
-def listar(request):
+def list_tasks(request):
     """ Listar Tarefas """
-    tarefas = Tarefas.objects.all().order_by('-created_at')  # busca todas as tarefas
-    return render(request, 'home.html', {'tarefas': tarefas}) # retorna/renderiza o template para listar as tarefas
+    tasks = Tasks.objects.all().order_by('-created_at')  # busca todas as tarefas
+    return render(request, 'home.html', {'tasks': tasks}) # retorna/renderiza o template para listar as tarefas
 
-def recuperar(request, **kwargs): 
+def retrive(request, **kwargs): 
     pk = kwargs.get('pk')
-    tarefa = Tarefas.objects.get(pk=pk)
-    form = AdicionarTarefa(instance=tarefa)
-    context = {'tarefa': tarefa, 'form': form}
+    task = Tasks.objects.get(pk=pk)
+    form = CreateTasks(instance=task)
+    context = {'task': task, 'form': form}
     return render(request, 'form_update.html', context)
 
-def adicionar(request):
+def create(request):
     """ Registrar uma tarefa no banco de dados """
     if request.method == 'POST':
-        form = AdicionarTarefa(data=request.POST)  
+        form = CreateTasks(data=request.POST)  
         if form.is_valid():
             form.save()
-            return redirect('listar')
+            return redirect('list_tasks')
     else:
-        form = AdicionarTarefa()
+        form = CreateTasks()
 
     context = {'form': form}
     return render(request, 'form.html', context)
 
 
-def atualizar(request, **kwargs):
+def update(request, **kwargs):
     """ Atualizar uma tarefa no banco de dados """
     pk = kwargs.get('pk')
-    tarefa = Tarefas.objects.get(pk=pk)
-    form = AdicionarTarefa(data=request.POST, instance=tarefa)
+    task = Tasks.objects.get(pk=pk)
+    form = CreateTasks(data=request.POST, instance=task)
     if form.is_valid():
         form.save()
-        return redirect('listar')
+        return redirect('list_tasks')
 
-def deletar(request, **kwargs):
+def delete(request, **kwargs):
     if pk := kwargs.get('pk'):
-        tarefa = Tarefas.objects.get(pk=pk)
-        tarefa.delete()
-        return redirect('listar')
+        task = Tasks.objects.get(pk=pk)
+        task.delete()
+        return redirect('list_tasks')
