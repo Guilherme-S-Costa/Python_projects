@@ -23,9 +23,9 @@ class Product(models.Model):
     @property
     def imagensURL(self):
         try:
-            url = self.imagens.url
+                url = self.imagens.url
         except: 
-            url = ''
+                url = ''
         return url
 
 
@@ -40,15 +40,20 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.pk} | {self.client_email}"
 
+    @property
     def get_cart_total(self):
-        total = OrderItem.objects.filter(order_id=self.pk).aggregate(total=models.Sum('quantity', 0.0)).get('total')
-        return float(total)
+        sum = 0
+        for item in self.items:
+            sum += item.get_total
+        return float(sum)
     
     @property
-    def get_cart_item(self):
-        orderitems = self.orderitem_set.all()
-        total = sum([item.get_quantity for item in orderitems])
-        return total 
+    def items(self):
+        return OrderItem.objects.filter(order=self)
+    
+    @property
+    def total_items(self):
+        return self.items.count()
     
 class OrderItem(models.Model):
     created_at = models.DateField(auto_now=True)
@@ -65,7 +70,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        return (self.product_value * self.quantity)
+        return self.product_value
 
 class ShippingAddress(models.Model):
     created_at = models.DateField(auto_now=True)
