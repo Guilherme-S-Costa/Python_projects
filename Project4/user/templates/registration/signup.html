@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2>Cadastre-se</h2>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-12'>
+                <form method="POST" action="{% url 'validate-signup' %}">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <br>
+                    <label>Escolha seu nome de usuário</label>
+                    <input name='nome' class='form-control' type='text' placeholder='Nome...'>
+                    <br>
+                    <label>Escolha seu email</label>
+                    <input name='email' class='form-control' type='text' placeholder='Email...'>
+                    <br>
+                    <label>Escolha sua senha com 8 caracteres no minimo</label>
+                    <input name='senha' class='form-control' type='password' placeholder='Senha...'>
+                    <br>
+                    <button class='btn btn-success'>Enviar</button>
+                    <a href="{% url 'login' %}" class='btn btn-warning'>Login</a>
+                </form>
+            </div>
+        </div>
+    </div>          
+{% endblock content%}         

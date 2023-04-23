@@ -1,4 +1,4 @@
-{% extends 'ecommerce/main.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 	<div class='row my-5'>
@@ -23,63 +23,5 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{product.name}}</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-                        <a class="btn btn-outline-success" href="#">Visualizar Poduto</a>
-                        <h4 style="display: inline-block; float: right">${{product.price|floatformat:2}}</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{product.name}}</h5>
-                        <p class="card-text"></p>
-                        <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
-                        <a class="btn btn-outline-success" href="#">Visualizar Poduto</a>
-                        <h4 style="display: inline-block; float: right">${{product.price|floatformat:2}}</h4>
-                    </div>
-                </div>
-            </div>
-{% comment %} 
-				<img class="thumbnail" src="{{ product.imagensURL }}">
-				<div class="box-element product">
-					<h6><strong>{{product.name}}</strong></h6>
-					<hr>
-					<button class="btn btn-outline-secondary add-btn">Adicionar ao Carrinho</button>
-					<a class="btn btn-outline-success" href="#">Visualizar Poduto</a>
-					<h4 style="display: inline-block; float: right">${{product.price|floatformat:2}}</h4>
-				</diV> {% endcomment %}
-			</div>   
 		{% endfor %}
-        {% comment %} <div class="col-lg-4">
-                <img class="thumbnail" src="{% static 'imagens/placeholder.png' %}">
-                <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right">$20</h4>        
-                </diV>
-        </div>   {% endcomment %}
-
-        {% comment %} <div class="col-lg-4">
-                <img class="thumbnail" src="{% static 'imagens/placeholder.png' %}">
-                <div class="box-element product">
-                        <h6><strong>Product</strong></h6>
-                        <hr>
-                        
-                        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-                        <a class="btn btn-outline-success" href="#">View</a>
-                        <h4 style="display: inline-block; float: right">$20</h4> {% endcomment %}
-            {% comment %} </diV>
-        </div>   {% endcomment %}
-    </div> 
 {% endblock content %}

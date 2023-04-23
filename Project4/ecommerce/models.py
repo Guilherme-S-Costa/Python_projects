@@ -32,7 +32,7 @@ class Product(models.Model):
 class Order(models.Model):
     created_at = models.DateField(auto_now=True)
     updated_at = models.DateField(auto_now=True)
-    client = models.ForeignKey(Client, on_delete=models.SET_NULL, blank=True, null=True)
+    client = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     client_email = models.CharField(max_length=100, null=True, blank=True)
     completed_at = models.DateTimeField(null=True, blank=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
@@ -63,7 +63,7 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=1)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     product_add_at = models.DateTimeField(null=True, blank=True)
-    client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True, blank=True)
+    client = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.pk} | {self.client_id} | {self.product.name}"
@@ -75,7 +75,7 @@ class OrderItem(models.Model):
 class ShippingAddress(models.Model):
     created_at = models.DateField(auto_now=True)
     updated_at = models.DateField(auto_now=True)
-    client = models.ForeignKey(Client, on_delete=models.SET_NULL, blank=True, null=True)
+    client = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True) 
     address = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
