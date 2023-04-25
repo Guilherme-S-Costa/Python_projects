@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="row mb-5">
+        <div class="col-lg">
+            <h2>Resumo da sua compra</h2>
+
+            <p class="lead">Dados do usuário</p>
+            <p>Caso precise editar, <a href="{% url 'accounts:update' %}">clique aqui</a></p>
+            <dl class="row">
+                <dt class="col-lg-2">Nome:</dt>
+                <dd class="col-lg-4">{{user.name}}</dd>
+                <dt class="col-lg-2">{{user.first_name}}</dt>
+                <dd class="col-lg-4">{{user.last_name}}</dd>
+
+                <dt class="col-lg-2">Idade:</dt>
+                <dd class="col-lg-4">{{user.profile_age}}</dd>
+                <dt class="col-lg-2">Nascimento:</dt>
+                <dd class="col-lg-4">{{user.profle_birth_date}}</dd>
+
+                <dt class="col-lg-2">CPF:</dt>
+                <dd class="col-lg-4">{{user.profile.document}}</dd>
+                <dt class="col-lg-2">E-mail:</dt>
+                <dd class="col-lg-4">{{user.email}}</dd>
+            </dl>
+
+            <p class="lead">Dados de endereço</p>
+            <p>Caso precise editar, <a href="{% url 'accounts:update' %}">clique aqui</a></p>
+            <dl class="row">
+                <dt class="col-lg-2">Endereço:</dt>
+                <dd class="col-lg-4">Av. Filho Junior</dd>
+                <dt class="col-lg-2">Número:</dt>
+                <dd class="col-lg-4">12</dd>
+
+                <dt class="col-lg-2">Complemento:</dt>
+                <dd class="col-lg-4">Casa</dd>
+                <dt class="col-lg-2">Nascimento:</dt>
+                <dd class="col-lg-4">Centro</dd>
+
+                <dt class="col-lg-2">Cidade:</dt>
+                <dd class="col-lg-4">São Paulo</dd>
+                <dt class="col-lg-2">Estado:</dt>
+                <dd class="col-lg-4">SP</dd>
+
+                <dt class="col-lg-2">CEP:</dt>
+                <dd class="col-lg-4">00000000</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% include 'structure/cart.html' %}
+            <a class="btn btn-block btn-primary btn-lg" href="{% url 'orders:pay' %}">
+                Realizar pedido e pagar
+            </a>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load filters %}
+{% load static %}
+
+{% block content %}
+
+
+    {% if not request.session.cart %}
+        Carrinho vazio
+    {% else %}
+
+    <div class="row mt-3">
+        <div class="col">
+            <h3>Carrinho de compras</h3>
+            <p class="lead">Os produtos, quantidades e preços que você escolheu.</p>
+
+            {% include 'structure/cart.html' %}
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-lg">
+            <p class='lead'>Total no carrinho</p>
+
+            <div class='table-responsive'>
+                <table class="table">
+                    <tr>
+                        <td class="font-weight-bold">Total de itens</td>
+                        <td>{{ request.session.cart|calculate_cart_items }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg mt-auto">
+            <a class="btn btn-lg btn-block btn-primary" href="{% url btn_url_redirect %}">
+                Finalizar a compra
+            </a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock content %}

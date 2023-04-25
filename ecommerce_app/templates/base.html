@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% include 'structure/head.html' %}
+    <title>Ecommerce App</title>
+</head>
+<body>
+   {% include 'structure/nav.html' %}
+    <main class="container mt-4 mb-4">
+        {% include 'structure/messages.html'%}
+        {% block content  %} {% endblock content  %}
+    </main>
+
+    {% include 'structure/footer.html' %}
+
+</body>
+
+</html>
